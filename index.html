@@ -180,6 +180,75 @@
             line-height: 1.5;
         }
 
+        /* Music Control Button */
+        .music-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            margin-right: 8px;
+            outline: none;
+        }
+
+        .music-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.45);
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(255, 42, 95, 0.3);
+        }
+
+        .music-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Equalizer / Audio Bars Animation */
+        .music-bars {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 3px;
+            width: 18px;
+            height: 16px;
+        }
+
+        .music-bar {
+            width: 2px;
+            background-color: #ff2a5f;
+            border-radius: 1px;
+            height: 3px;
+            transition: height 0.2s ease, background-color 0.3s ease;
+        }
+
+        .music-btn.playing .music-bar {
+            animation: bounce 0.8s ease infinite alternate;
+        }
+
+        .music-btn.playing .music-bar:nth-child(1) { animation-delay: 0.15s; }
+        .music-btn.playing .music-bar:nth-child(2) { animation-delay: 0.35s; }
+        .music-btn.playing .music-bar:nth-child(3) { animation-delay: 0s; }
+        .music-btn.playing .music-bar:nth-child(4) { animation-delay: 0.25s; }
+
+        @keyframes bounce {
+            0% { height: 3px; }
+            100% { height: 16px; }
+        }
+
+        /* Muted visual state (static bars) */
+        .music-btn.paused .music-bar {
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.4);
+            animation: none !important;
+        }
+
         /* Responsive scaling */
         @media (max-width: 768px) {
             header {
@@ -227,7 +296,15 @@
                     <span class="logo-sub">Bleach vs Naruto Mobile</span>
                 </div>
             </div>
-            <div class="header-right">
+            <div class="header-right" style="display: flex; align-items: center;">
+                <button id="music-toggle" class="music-btn paused" aria-label="Bật/Tắt Nhạc Nền">
+                    <div class="music-bars">
+                        <div class="music-bar"></div>
+                        <div class="music-bar"></div>
+                        <div class="music-bar"></div>
+                        <div class="music-bar"></div>
+                    </div>
+                </button>
                 <a href="https://android.rbyd.me" class="btn btn-android">TẢI ANDROID</a>
                 <a href="https://iossideload.rbyd.me" class="btn btn-ios">TẢI IOS-SIDELOAD</a>
             </div>
@@ -238,5 +315,68 @@
             <p class="tagline">Kỷ nguyên đối kháng trực tuyến Anime huyền thoại tái sinh trên di động với cơ chế P2P Netplay đồng bộ mượt mà.</p>
         </div>
     </div>
+
+    <!-- Audio Element -->
+    <audio id="bgm" src="bgm.mp3" loop preload="auto"></audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgm = document.getElementById('bgm');
+            const musicBtn = document.getElementById('music-toggle');
+            let playAttempted = false;
+
+            function startAudio() {
+                if (playAttempted) return;
+                bgm.volume = 0;
+                bgm.play().then(() => {
+                    musicBtn.classList.remove('paused');
+                    musicBtn.classList.add('playing');
+                    playAttempted = true;
+                    removeInteractionListeners();
+
+                    // Smooth fade-in for volume
+                    let vol = 0;
+                    const fadeInterval = setInterval(() => {
+                        vol += 0.05;
+                        if (vol >= 0.4) {
+                            bgm.volume = 0.4;
+                            clearInterval(fadeInterval);
+                        } else {
+                            bgm.volume = vol;
+                        }
+                    }, 100);
+                }).catch(err => {
+                    console.log("Autoplay blocked by browser. User interaction needed to play audio.");
+                });
+            }
+
+            function removeInteractionListeners() {
+                document.removeEventListener('click', startAudio);
+                document.removeEventListener('touchstart', startAudio);
+                document.removeEventListener('keydown', startAudio);
+            }
+
+            // Bind global interaction events for early audio trigger
+            document.addEventListener('click', startAudio);
+            document.addEventListener('touchstart', startAudio);
+            document.addEventListener('keydown', startAudio);
+
+            // Music toggle button handler
+            musicBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Avoid triggering document click listener
+                if (bgm.paused) {
+                    bgm.play();
+                    musicBtn.classList.remove('paused');
+                    musicBtn.classList.add('playing');
+                    playAttempted = true;
+                    removeInteractionListeners();
+                } else {
+                    bgm.pause();
+                    musicBtn.classList.remove('playing');
+                    musicBtn.classList.add('paused');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
