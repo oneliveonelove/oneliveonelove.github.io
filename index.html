@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Return By Death - Bleach vs Naruto Mobile</title>
+    <title>Return By Death - Bleach vs Naruto Mobile | Trang Chủ Chính Thức</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #08090c;
-            --card-bg: rgba(15, 18, 25, 0.7);
-            --primary: #ff3366;
-            --secondary: #33ccff;
-            --text-color: #f5f6fa;
-            --text-muted: #8f92a1;
-            --glow-red: rgba(255, 51, 102, 0.4);
-            --glow-blue: rgba(51, 204, 255, 0.4);
+            --bg-color: #06070a;
+            --card-bg: rgba(13, 16, 24, 0.75);
+            --primary: #ff2a5f;
+            --secondary: #00d2ff;
+            --primary-glow: rgba(255, 42, 95, 0.35);
+            --secondary-glow: rgba(0, 210, 255, 0.35);
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.06);
         }
 
         * {
@@ -25,75 +26,164 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
+            line-height: 1.6;
             overflow-x: hidden;
-            min-height: 100vh;
             background-image: 
-                radial-gradient(circle at 5% 15%, rgba(255, 51, 102, 0.15) 0%, transparent 35%),
-                radial-gradient(circle at 95% 85%, rgba(51, 204, 255, 0.15) 0%, transparent 35%);
+                radial-gradient(circle at 0% 0%, rgba(255, 42, 95, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 100% 50%, rgba(0, 210, 255, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 100%, rgba(255, 42, 95, 0.08) 0%, transparent 50%);
         }
 
-        main {
-            max-width: 800px;
+        /* Navigation */
+        nav {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px 80px;
+            padding: 24px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .brand-logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Container wrapper */
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
         }
 
-        .header-section {
-            margin-bottom: 30px;
+        .game-icon-wrapper {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .game-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 28px;
+            box-shadow: 0 0 35px var(--primary-glow);
+            z-index: -1;
+            transform: scale(0.95);
         }
 
         .game-icon {
-            width: 110px;
-            height: 110px;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
             border: 2px solid rgba(255, 255, 255, 0.1);
+            display: block;
         }
 
-        h1 {
+        .hero h1 {
             font-family: 'Outfit', sans-serif;
             font-weight: 900;
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             line-height: 1.1;
-            margin-bottom: 10px;
-            letter-spacing: -1.5px;
-            background: linear-gradient(180deg, #ffffff 0%, #a2a6b0 100%);
+            margin-bottom: 12px;
+            letter-spacing: -2px;
+            background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        h1 span {
+        .hero h1 span {
             background: linear-gradient(135deg, var(--primary) 30%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .sub-title {
+        .hero .subtitle {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            color: var(--text-muted);
+            font-size: 1.25rem;
+            color: var(--secondary);
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             margin-bottom: 25px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        .cta-container {
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        /* Download Section */
+        .download-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            margin-bottom: 60px;
+        }
+
+        .download-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .btn-group {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            width: 100%;
-            max-width: 420px;
-            margin-bottom: 45px;
         }
 
         .btn {
@@ -108,13 +198,12 @@
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid transparent;
-            cursor: pointer;
         }
 
         .btn-android {
             background-color: var(--primary);
             color: #ffffff;
-            box-shadow: 0 8px 25px var(--glow-red);
+            box-shadow: 0 8px 25px var(--primary-glow);
         }
 
         .btn-android:hover {
@@ -126,170 +215,315 @@
             background-color: rgba(255, 255, 255, 0.05);
             color: #ffffff;
             border-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
         }
 
         .btn-ios:hover {
             transform: translateY(-2px);
             background-color: rgba(255, 255, 255, 0.08);
             border-color: var(--secondary);
-            box-shadow: 0 8px 25px var(--glow-blue);
+            box-shadow: 0 8px 25px var(--secondary-glow);
         }
 
-        .section-title {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.6rem;
-            margin: 40px 0 20px;
-            letter-spacing: -0.5px;
-            text-align: left;
-            width: 100%;
+        /* Sections */
+        section {
+            padding: 40px 0;
+        }
+
+        .section-header {
             border-left: 4px solid var(--primary);
-            padding-left: 12px;
+            padding-left: 16px;
+            margin-bottom: 25px;
+            text-align: left;
         }
 
-        .banner-container {
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* Showcase Banner */
+        .showcase-banner {
             width: 100%;
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .banner-img {
+        .showcase-banner img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            width: 100%;
+        /* Game Overview Text */
+        .game-intro-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            text-align: justify;
             margin-bottom: 30px;
         }
 
-        .gallery-img {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
-        .gallery-img:hover {
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
             transform: scale(1.02);
         }
 
-        .feature-list {
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Features List */
+        .features-list {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            width: 100%;
-            text-align: left;
         }
 
-        .feature-item {
+        .feature-card {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 20px;
-            backdrop-filter: blur(16px);
-        }
-
-        .feature-header {
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 24px;
             display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
+            gap: 20px;
+            align-items: flex-start;
+            backdrop-filter: blur(10px);
         }
 
-        .feature-icon {
-            font-size: 1.4rem;
+        .feature-icon-box {
+            font-size: 2rem;
+            line-height: 1;
         }
 
-        .feature-title {
+        .feature-content h3 {
             font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1.15rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
         }
 
-        .feature-desc {
-            font-size: 0.9rem;
+        .feature-content p {
             color: var(--text-muted);
+            font-size: 0.95rem;
             line-height: 1.5;
         }
 
-        footer {
-            margin-top: 60px;
-            color: rgba(255, 255, 255, 0.25);
-            font-size: 0.8rem;
+        /* Instructions */
+        .guide-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.2rem;
+        .guide-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-steps {
+            list-style: none;
+            padding-left: 0;
+            text-align: left;
+        }
+
+        .guide-steps li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .guide-steps li::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
             }
-            .gallery {
+            .gallery-grid {
                 grid-template-columns: 1fr;
+            }
+            .feature-card {
+                flex-direction: column;
+                gap: 12px;
             }
         }
     </style>
 </head>
 <body>
-    <main>
-        <div class="header-section">
-            <img src="images/icon.png" alt="Return By Death Logo" class="game-icon">
-            <h1>RETURN BY DEATH</h1>
-            <div class="sub-title">Bleach vs Naruto Mobile</div>
+    <nav>
+        <a href="#" class="brand-logo">RETURN BY DEATH</a>
+        <div class="nav-links">
+            <a href="#about">Giới Thiệu</a>
+            <a href="#features">Tính Năng</a>
+            <a href="#guide">Cài Đặt</a>
         </div>
+    </nav>
 
-        <div class="cta-container">
-            <a href="/android" class="btn btn-android">Tải Bản Android (APK)</a>
-            <a href="/ios-sideload" class="btn btn-ios">Tải Bản iOS (IPA Sideload)</a>
-        </div>
-
-        <h2 class="section-title">Giới Thiệu Game</h2>
-        <div class="banner-container">
-            <img src="images/banner.png" alt="Game Banner" class="banner-img">
-        </div>
-
-        <h2 class="section-title">Hình Ảnh In-game</h2>
-        <div class="gallery">
-            <img src="images/screen1.png" alt="Screenshot 1" class="gallery-img">
-            <img src="images/screen2.png" alt="Screenshot 2" class="gallery-img">
-        </div>
-
-        <h2 class="section-title">Tính Năng Nổi Bật</h2>
-        <div class="feature-list">
-            <div class="feature-item">
-                <div class="feature-header">
-                    <span class="feature-icon">⚡</span>
-                    <h4 class="feature-title">P2P Rollback Netplay</h4>
-                </div>
-                <p class="feature-desc">Độ trễ đầu vào tối ưu ổn định ở mức 4 frames giúp trải nghiệm đối kháng trực tuyến mượt mà như chơi offline.</p>
+    <main class="wrapper">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="game-icon-wrapper">
+                <img src="images/icon.png" alt="Return By Death Game Icon" class="game-icon">
             </div>
-            <div class="feature-item">
-                <div class="feature-header">
-                    <span class="feature-icon">🎨</span>
-                    <h4 class="feature-title">Giao diện Chọn Tướng mới</h4>
+            <h1>RETURN BY <span>DEATH</span></h1>
+            <div class="subtitle">Bleach vs Naruto Mobile</div>
+            <p class="description">Trải nghiệm tựa game đối kháng anime kinh điển được tái sinh trên nền tảng di động với hiệu năng đỉnh cao, cơ chế kết nối P2P cải tiến và giao diện tùy biến hoàn mỹ.</p>
+            
+            <!-- Hộp tải game ưu tiên lên đầu -->
+            <div class="download-box">
+                <h3 class="download-title">TẢI GAME MIỄN PHÍ</h3>
+                <div class="btn-group">
+                    <a href="/android" class="btn btn-android">Tải Bản Android (APK)</a>
+                    <a href="/ios-sideload" class="btn btn-ios">Tải Bản iOS (IPA Sideload)</a>
                 </div>
-                <p class="feature-desc">Màn hình lựa chọn đấu sĩ được thiết kế lại gọn gàng, chèn hình nền tùy chỉnh đẹp mắt và căn giữa các nút cuộn tiện lợi.</p>
             </div>
-            <div class="feature-item">
-                <div class="feature-header">
-                    <span class="feature-icon">🔒</span>
-                    <h4 class="feature-title">Bảo mật Secure Bootstrap</h4>
+        </section>
+
+        <!-- Giới thiệu chi tiết game -->
+        <section id="about">
+            <div class="section-header">
+                <h2>Giới Thiệu Trò Chơi</h2>
+                <p>Cuộc đối đầu huyền thoại giữa hai thế giới Shinigami và Shinobi</p>
+            </div>
+            <div class="showcase-banner">
+                <img src="images/banner.png" alt="Bleach vs Naruto Battle Banner">
+            </div>
+            <p class="game-intro-text">
+                <strong>Return By Death (RBYD)</strong> là phiên bản cải tiến đột phá của tựa game đối kháng huyền thoại 2D <em>Bleach vs Naruto</em> dành riêng cho thiết bị di động. Trò chơi là đấu trường khốc liệt quy tụ hàng trăm nhân vật được yêu thích nhất từ hai vũ trụ Anime đình đám. Được tối ưu hóa hoàn toàn từ mã nguồn bytecode ActionScript 3, RBYD mang lại tốc độ chiến đấu chớp nhoáng, cơ chế ra chiêu mượt mà cùng hệ thống chiêu thức combo đẹp mắt mà không làm nóng máy hay hao pin thiết bị của bạn.
+            </p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/screen1.png" alt="Gameplay Screen 1">
                 </div>
-                <p class="feature-desc">Đóng gói mã hóa phân mảnh tĩnh và làm rối mã nguồn bytecode giúp ngăn chặn việc dịch ngược, bảo vệ bản quyền game.</p>
+                <div class="gallery-item">
+                    <img src="images/screen2.png" alt="Gameplay Screen 2">
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Tính năng nổi bật -->
+        <section id="features">
+            <div class="section-header">
+                <h2>Tính Năng Đột Phá</h2>
+                <p>Những cải tiến công nghệ mang lại trải nghiệm hoàn hảo</p>
+            </div>
+            <div class="features-list">
+                <div class="feature-card">
+                    <div class="feature-icon-box">⚡</div>
+                    <div class="feature-content">
+                        <h3>P2P Rollback Netcode</h3>
+                        <p>Hệ thống Netcode đồng bộ hóa mạng lưới độc quyền giúp giữ độ trễ phản hồi (Input Delay) ở mức cố định là 4 frames. Trận đấu trực tuyến giờ đây sẽ mượt mà như đang chơi local 2 người trên cùng một thiết bị, loại bỏ hoàn toàn hiện tượng lag slow-motion khi ping cao.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-box">🎨</div>
+                    <div class="feature-content">
+                        <h3>Giao Diện Tùy Biến Hoàn Mỹ</h3>
+                        <p>Màn hình lựa chọn nhân vật (Select Screen) được thiết kế lại tối ưu cho màn hình cảm ứng di động. Ảnh nền đấu sĩ được thay thế bằng hình ảnh tùy biến chất lượng cao, đồng thời di chuyển các nút điều hướng trang lên các vị trí rìa màn hình giúp thao tác ngón tay dễ dàng và nhanh chóng.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-box">🔒</div>
+                    <div class="feature-content">
+                        <h3>Bảo Mật Secure Bootstrap</h3>
+                        <p>Ứng dụng được bảo vệ đa lớp nhờ công nghệ phân mảnh nhị phân và mã hóa XOR động trước khi nạp vào máy ảo AVM2. Lớp vỏ bọc ngoài kết hợp công nghệ khóa swfencrypt của Harman SDK giúp ngăn chặn triệt để các công cụ dịch ngược mã nguồn tĩnh (như JPEXS) lấy cắp tài nguyên game.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hướng dẫn cài đặt chi tiết -->
+        <section id="guide">
+            <div class="section-header">
+                <h2>Hướng Dẫn Cài Đặt</h2>
+                <p>Các bước đơn giản để đưa game lên thiết bị của bạn</p>
+            </div>
+            
+            <div class="guide-card">
+                <h3>🤖 Hướng dẫn cài đặt trên Android</h3>
+                <ul class="guide-steps">
+                    <li data-step="1">Tải file <strong>ReturnByDeath.apk</strong> về điện thoại bằng nút tải phía trên.</li>
+                    <li data-step="2">Nếu điện thoại cảnh báo nguồn không xác định, truy cập <em>Cài đặt > Bảo mật</em> và bật <strong>Cho phép cài đặt từ nguồn không xác định</strong>.</li>
+                    <li data-step="3">Mở file APK đã tải xuống và nhấn <strong>Cài đặt (Install)</strong>. Sau khi hoàn tất, bạn có thể mở game và chiến ngay lập tức!</li>
+                </ul>
+            </div>
+
+            <div class="guide-card">
+                <h3>🍎 Hướng dẫn cài đặt trên iOS (iPhone/iPad)</h3>
+                <ul class="guide-steps">
+                    <li data-step="1">Tải file <strong>ReturnByDeath.ipa</strong> về máy thông qua liên kết tải iOS phía trên.</li>
+                    <li data-step="2">Sử dụng các công cụ cài đặt ứng dụng bên thứ ba (Sideloading) phổ biến hiện nay như <strong>Scarlet</strong>, <strong>TrollStore</strong>, <strong>AltStore</strong> hoặc <strong>Esign</strong> để ký và nạp file IPA vào thiết bị.</li>
+                    <li data-step="3">Sau khi cài đặt xong, truy cập <em>Cài đặt > Cài đặt chung > Quản lý VPN & Thiết bị</em> trên iPhone của bạn và xác minh quyền <strong>Tin cậy nhà phát triển (Trust Developer)</strong> để mở game.</li>
+                </ul>
+            </div>
+        </section>
 
         <footer>
-            <p>&copy; 2026 Return By Death. Powered by GitHub Pages.</p>
+            <p>&copy; 2026 Return By Death. Bảo lưu mọi quyền. <br> Powered by GitHub Pages & rbyd.me.</p>
         </footer>
     </main>
 </body>
